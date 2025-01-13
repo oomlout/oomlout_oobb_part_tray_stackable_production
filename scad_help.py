@@ -49,8 +49,22 @@ def make_scad_generic(part):
     else:            
         get_base(thing, **kwargs)   
 
+    #move oomp bits from kwargs to part
+    oomp_keys = ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]
+    for key in ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]:
+        part[key] = kwargs.get(key, "")
+
+    oomp_id = ""
+    for key in oomp_keys:
+        deet = part.get(key, "")
+        if deet != "":
+            oomp_id += f"{deet}_"
+    oomp_id = oomp_id[:-1]
+    part["id"] = oomp_id
+
+
     id = thing.get("id", "default")    
-    folder = f"parts/{id}"
+    folder = f"parts/{oomp_id}"
 
     kwargs["description_main"] = id
 
@@ -69,18 +83,7 @@ def make_scad_generic(part):
 
         opsc.opsc_make_object(f'{folder}/{mode}.scad', thing["components"], mode=mode, save_type=save_type, overwrite=overwrite, layers=layers, tilediff=tilediff, start=start)  
 
-    #move oomp bits from kwargs to part
-    oomp_keys = ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]
-    for key in ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]:
-        part[key] = kwargs.get(key, "")
-
-    oomp_id = ""
-    for key in oomp_keys:
-        deet = part.get(key, "")
-        if deet != "":
-            oomp_id += f"{deet}_"
-    oomp_id = oomp_id[:-1]
-    part["id"] = oomp_id
+    
 
 
     yaml_file = f"{folder}/working.yaml"
