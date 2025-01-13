@@ -12,10 +12,13 @@ def main(**kwargs):
 def make_scad(**kwargs):
     parts = []
 
-    #setup
+    #setup    
     #typ = "all"
-    typ = "fast"
-    #typ = "manual"
+    #typ = "fast"
+    typ = "manual"
+
+    oomp_mode = "project"
+    #oomp_mode = "oobb"
 
     if typ == "all":
         filter = ""; save_type = "all"; navigation = True; overwrite = True; modes = ["3dpr", "laser", "true"]
@@ -31,8 +34,8 @@ def make_scad(**kwargs):
         #save_type = "all"
         
     #navigation        
-        navigation = False
-        #navigation = True    
+        #navigation = False
+        navigation = True    
 
     #overwrite
         overwrite = True
@@ -48,6 +51,7 @@ def make_scad(**kwargs):
     kwargs["navigation"] = navigation
     kwargs["overwrite"] = overwrite
     kwargs["modes"] = modes
+    kwargs["oomp_mode"] = oomp_mode
     
        
     # project_variables
@@ -67,10 +71,20 @@ def make_scad(**kwargs):
         kwargs["height"] = 1
         kwargs["thickness"] = 3
         #oomp_bits
-        if True:
+        if oomp_mode == "project":
             kwargs["oomp_classification"] = "project"
             kwargs["oomp_type"] = "github"
+            kwargs["oomp_size"] = "oomlout"
             kwargs["oomp_color"] = project_name
+            kwargs["oomp_description_main"] = ""
+            kwargs["oomp_description_extra"] = ""
+            kwargs["oomp_manufacturer"] = ""
+            kwargs["oomp_part_number"] = ""
+        elif oomp_mode == "oobb":
+            kwargs["oomp_classification"] = "oobb"
+            kwargs["oomp_type"] = "part"
+            kwargs["oomp_size"] = ""
+            kwargs["oomp_color"] = ""
             kwargs["oomp_description_main"] = ""
             kwargs["oomp_description_extra"] = ""
             kwargs["oomp_manufacturer"] = ""

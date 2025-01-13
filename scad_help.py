@@ -49,15 +49,18 @@ def make_scad_generic(part):
     else:            
         get_base(thing, **kwargs)   
 
+    oomp_mode = kwargs.get("oomp_mode", "project")
     
-    
-    descmain = ""
-    current_description_main = thing.get("description_main", "default")
-    current_size = thing.get("size", "default")
-    new_size = current_size.replace(f"{project_name}_", "")
-    descmain = f"{new_size}_{current_description_main}"
-    kwargs["oomp_description_main"] = f"{descmain}"
-    
+    if oomp_mode == "project":
+        descmain = ""
+        current_description_main = thing.get("description_main", "default")
+        current_size = thing.get("size", "default")
+        new_size = current_size.replace(f"{project_name}_", "")
+        descmain = f"{new_size}_{current_description_main}"
+        kwargs["oomp_description_main"] = f"{descmain}"
+    elif oomp_mode == "oobb":
+        kwargs["oomp_description_main"] = f"{name}"
+
     #move oomp bits from kwargs to part
     oomp_keys = ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]
     for key in ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]:
@@ -132,29 +135,31 @@ def generate_navigation(folder="parts", sort=["width", "height", "thickness"]):
                     print(f"Loaded {yaml_file}")
 
     pass
+    
     for part_id in parts:
         part = parts[part_id]
-        kwarg_copy = copy.deepcopy(part["kwargs"])
-        folder_navigation = "navigation_oobb"
-        folder_source = part["folder"]
-        folder_extra = ""
-        for s in sort:
-            if s == "name":
-                ex = part.get("name", "default")
-            else:
-                ex = kwarg_copy.get(s, "default")
-            folder_extra += f"{s}_{ex}/"
+        if "kwargs" in part:
+            kwarg_copy = copy.deepcopy(part["kwargs"])
+            folder_navigation = "navigation_oobb"
+            folder_source = part["folder"]
+            folder_extra = ""
+            for s in sort:
+                if s == "name":
+                    ex = part.get("name", "default")
+                else:
+                    ex = kwarg_copy.get(s, "default")
+                folder_extra += f"{s}_{ex}/"
 
-        #replace "." with d
-        folder_extra = folder_extra.replace(".","d")            
-        folder_destination = f"{folder_navigation}/{folder_extra}"
-        if not os.path.exists(folder_destination):
-            os.makedirs(folder_destination)
-        if os.name == 'nt':
-            #copy a full directory auto overwrite
-            command = f'xcopy "{folder_source}" "{folder_destination}" /E /I /Y'
-            print(command)
-            os.system(command)
-        else:
-            os.system(f"cp {folder_source} {folder_destination}")
+            #replace "." with d
+            folder_extra = folder_extra.replace(".","d")            
+            folder_destination = f"{folder_navigation}/{folder_extra}"
+            if not os.path.exists(folder_destination):
+                os.makedirs(folder_destination)
+            if os.name == 'nt':
+                #copy a full directory auto overwrite
+                command = f'xcopy "{folder_source}" "{folder_destination}" /E /I /Y'
+                print(command)
+                os.system(command)
+            else:
+                os.system(f"cp {folder_source} {folder_destination}")
 

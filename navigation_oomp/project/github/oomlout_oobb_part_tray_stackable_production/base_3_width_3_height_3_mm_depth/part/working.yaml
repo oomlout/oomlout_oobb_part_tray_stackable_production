@@ -146,13 +146,15 @@ kwargs:
   height: 3
   modes:
   - 3dpr
-  navigation: false
+  navigation: true
   oomp_classification: project
   oomp_color: oomlout_oobb_part_tray_stackable_production
   oomp_description_extra: ''
   oomp_description_main: base_3_width_3_height_3_mm_depth
   oomp_manufacturer: ''
+  oomp_mode: project
   oomp_part_number: ''
+  oomp_size: oomlout
   oomp_type: github
   overwrite: true
   thickness: 3
@@ -1586,13 +1588,15 @@ thing:
     height: 3
     modes:
     - 3dpr
-    navigation: false
+    navigation: true
     oomp_classification: project
     oomp_color: oomlout_oobb_part_tray_stackable_production
     oomp_description_extra: ''
     oomp_description_main: ''
     oomp_manufacturer: ''
+    oomp_mode: project
     oomp_part_number: ''
+    oomp_size: oomlout
     oomp_type: github
     overwrite: true
     pos:
@@ -1611,13 +1615,15 @@ thing:
     holes: perimeter
     modes:
     - 3dpr
-    navigation: false
+    navigation: true
     oomp_classification: project
     oomp_color: oomlout_oobb_part_tray_stackable_production
     oomp_description_extra: ''
     oomp_description_main: ''
     oomp_manufacturer: ''
+    oomp_mode: project
     oomp_part_number: ''
+    oomp_size: oomlout
     oomp_type: github
     overwrite: true
     pos:
@@ -1630,8 +1636,8 @@ thing:
     type: p
     width: 3
   components_string:
-  - oobb_plate_shape_positive_type_3_depth_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_3_width_3_height_3_thickness_project_oomp_classification_github_oomp_type_oomlout_oobb_part_tray_stackable_production_oomp_color
-  - oobb_holes_shape_p_type_3_depth_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_3_width_3_height_3_thickness_project_oomp_classification_github_oomp_type_oomlout_oobb_part_tray_stackable_production_oomp_color_true_both_holes_perimeter_holes
+  - oobb_plate_shape_positive_type_3_depth_none_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_3_width_3_height_3_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_oobb_part_tray_stackable_production_oomp_color
+  - oobb_holes_shape_p_type_3_depth_none_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_3_width_3_height_3_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_oobb_part_tray_stackable_production_oomp_color_true_both_holes_perimeter_holes
   description: oomlout oobb part tray stackable production base 3x3x3
   description_extra: ''
   description_main: 3_width_3_height_3_mm_depth
