@@ -19,7 +19,7 @@ def make_parts(**kwargs):
             if filter in name or filter in extra:
                 print(f"making {part['name']}")
                 make_scad_generic(part)            
-                print(f"done {part['name']}")
+                
             else:
                 print(f"skipping {part['name']}")
 
@@ -42,7 +42,10 @@ def make_scad_generic(part):
     kwargs.pop("size","")
 
     #get the part from the function get_{name}"
-    func = globals()[f"get_{name}"]    
+    try:
+        func = globals()[f"get_{name}"]    
+    except KeyError:
+        func = None
     # test if func exists
     if callable(func):            
         func(thing, **kwargs)        
@@ -59,11 +62,13 @@ def make_scad_generic(part):
         descmain = f"{new_size}_{current_description_main}"
         kwargs["oomp_description_main"] = f"{descmain}"
     elif oomp_mode == "oobb":
-        kwargs["oomp_description_main"] = f"{name}"
+        current_description_main = thing.get("description_main", "default")        
+        kwargs["oomp_description_main"] = f"{current_description_main}"
+        kwargs["oomp_size"] = f"{part["name"]}"
 
     #move oomp bits from kwargs to part
-    oomp_keys = ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]
-    for key in ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]:
+    oomp_keys = ["classification", "type", "size", "color", "description_main", "description_extra", "manufacturer", "part_number"]
+    for key in ["classification", "type", "size", "color", "description_main", "description_extra", "manufacturer", "part_number"]:
         part[key] = kwargs.get(f"oomp_{key}", f"")
 
 
@@ -102,6 +107,7 @@ def make_scad_generic(part):
 
 
     yaml_file = f"{folder}/working.yaml"
+    #partial dump
     with open(yaml_file, 'w') as file:
         part_new = copy.deepcopy(part)
         kwargs_new = part_new.get("kwargs", {})
@@ -111,8 +117,26 @@ def make_scad_generic(part):
         cwd = os.getcwd()
         part_new["project_name"] = cwd
         part_new["id_oobb"] = thing["id"]
-        part_new["thing"] = thing
+        #part_new["thing"] = thing
+        part_new.pop("thing", "")
         yaml.dump(part_new, file)
+    
+    #full dump
+    yaml_file = f"{folder}/thing.yaml"
+    with open(yaml_file, 'w') as file:
+        part_new = copy.deepcopy(part)
+        kwargs_new = part_new.get("kwargs", {})
+        kwargs_new.pop("save_type","")
+        part_new["kwargs"] = kwargs_new
+        import os
+        cwd = os.getcwd()
+        part_new["project_name"] = cwd
+        part_new["id_oobb"] = thing["id"]
+        #part_new["thing"] = thing
+        yaml.dump(part_new, file)
+
+
+    print(f"done {oomp_id}")
 
 def generate_navigation(folder="parts", sort=["width", "height", "thickness"]):
     #crawl though all directories in scad_output and load all the working.yaml files

@@ -1,2 +1,0 @@
-* [oomlout_oobb_part_tray_stackable_production](oomlout_oobb_part_tray_stackable_production)
-  * [base_3_width_3_height_3_mm_depth](oomlout_oobb_part_tray_stackable_production/base_3_width_3_height_3_mm_depth)
