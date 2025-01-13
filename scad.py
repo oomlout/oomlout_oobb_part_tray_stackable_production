@@ -56,16 +56,29 @@ def make_scad(**kwargs):
     
     # declare parts
     if True:
+
+        directory_name = os.path.dirname(__file__) 
+        directory_name = directory_name.replace("/", "\\")
+        project_name = directory_name.split("\\")[-1]
+
         #defaults
         kwargs["size"] = "oobb"
         kwargs["width"] = 1
         kwargs["height"] = 1
         kwargs["thickness"] = 3
+        #oomp_bits
+        if True:
+            kwargs["classification"] = "project"
+            kwargs["type"] = "github"
+            kwargs["color"] = project_name
+            kwargs["description_main"] = ""
+            kwargs["description_extra"] = ""
+            kwargs["manufacturer"] = ""
+            kwargs["part_number"] = ""
 
         part_default = {} 
-        directory_name = os.path.dirname(__file__) 
-        directory_name = directory_name.replace("/", "\\")
-        part_default["project_name"] = directory_name.split("\\")[-1]
+       
+        part_default["project_name"] = project_name
         part_default["full_shift"] = [0, 0, 0]
         part_default["full_rotations"] = [0, 0, 0]
         

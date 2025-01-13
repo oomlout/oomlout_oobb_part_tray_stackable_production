@@ -48,8 +48,11 @@ def make_scad_generic(part):
         func(thing, **kwargs)        
     else:            
         get_base(thing, **kwargs)   
-    
-    folder = f"scad_output/{thing['id']}"
+
+    id = thing.get("id", "default")    
+    folder = f"parts/{id}"
+
+    kwargs["description_main"] = id
 
     for mode in modes:
         depth = thing.get(
@@ -66,6 +69,20 @@ def make_scad_generic(part):
 
         opsc.opsc_make_object(f'{folder}/{mode}.scad', thing["components"], mode=mode, save_type=save_type, overwrite=overwrite, layers=layers, tilediff=tilediff, start=start)  
 
+    #move oomp bits from kwargs to part
+    oomp_keys = ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]
+    for key in ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]:
+        part[key] = kwargs.get(key, "")
+
+    oomp_id = ""
+    for key in oomp_keys:
+        deet = part.get(key, "")
+        if deet != "":
+            oomp_id += f"{deet}_"
+    oomp_id = oomp_id[:-1]
+    part["id"] = oomp_id
+
+
     yaml_file = f"{folder}/working.yaml"
     with open(yaml_file, 'w') as file:
         part_new = copy.deepcopy(part)
@@ -75,11 +92,11 @@ def make_scad_generic(part):
         import os
         cwd = os.getcwd()
         part_new["project_name"] = cwd
-        part_new["id"] = thing["id"]
+        part_new["id_oobb"] = thing["id"]
         part_new["thing"] = thing
         yaml.dump(part_new, file)
 
-def generate_navigation(folder="scad_output", sort=["width", "height", "thickness"]):
+def generate_navigation(folder="parts", sort=["width", "height", "thickness"]):
     #crawl though all directories in scad_output and load all the working.yaml files
     parts = {}
     for root, dirs, files in os.walk(folder):
