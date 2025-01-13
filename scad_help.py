@@ -49,10 +49,27 @@ def make_scad_generic(part):
     else:            
         get_base(thing, **kwargs)   
 
+    
+    
+    descmain = ""
+    current_description_main = thing.get("description_main", "default")
+    current_size = thing.get("size", "default")
+    new_size = current_size.replace(f"{project_name}_", "")
+    descmain = f"{new_size}_{current_description_main}"
+    kwargs["oomp_description_main"] = f"{descmain}"
+    
     #move oomp bits from kwargs to part
     oomp_keys = ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]
     for key in ["classification", "type", "color", "description_main", "description_extra", "manufacturer", "part_number"]:
-        part[key] = kwargs.get(key, "")
+        part[key] = kwargs.get(f"oomp_{key}", f"")
+
+
+
+
+    #id = thing.get("oobb_id", "default")    
+    
+
+    #kwargs["description_main"] = id
 
     oomp_id = ""
     for key in oomp_keys:
@@ -61,12 +78,7 @@ def make_scad_generic(part):
             oomp_id += f"{deet}_"
     oomp_id = oomp_id[:-1]
     part["id"] = oomp_id
-
-
-    id = thing.get("id", "default")    
     folder = f"parts/{oomp_id}"
-
-    kwargs["description_main"] = id
 
     for mode in modes:
         depth = thing.get(

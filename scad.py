@@ -68,13 +68,13 @@ def make_scad(**kwargs):
         kwargs["thickness"] = 3
         #oomp_bits
         if True:
-            kwargs["classification"] = "project"
-            kwargs["type"] = "github"
-            kwargs["color"] = project_name
-            kwargs["description_main"] = ""
-            kwargs["description_extra"] = ""
-            kwargs["manufacturer"] = ""
-            kwargs["part_number"] = ""
+            kwargs["oomp_classification"] = "project"
+            kwargs["oomp_type"] = "github"
+            kwargs["oomp_color"] = project_name
+            kwargs["oomp_description_main"] = ""
+            kwargs["oomp_description_extra"] = ""
+            kwargs["oomp_manufacturer"] = ""
+            kwargs["oomp_part_number"] = ""
 
         part_default = {} 
        

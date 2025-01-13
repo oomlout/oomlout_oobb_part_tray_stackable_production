@@ -4,3 +4,7 @@
       * [black](hardware/screw_countersunk/m3/black)
         * [6_mm_length](hardware/screw_countersunk/m3/black/6_mm_length)
           * [hex_head](hardware/screw_countersunk/m3/black/6_mm_length/hex_head)
+* [project](project)
+  * [github](project/github)
+    * [oomlout_oobb_part_tray_stackable_production](project/github/oomlout_oobb_part_tray_stackable_production)
+      * [base_3_width_3_height_3_mm_depth](project/github/oomlout_oobb_part_tray_stackable_production/base_3_width_3_height_3_mm_depth)
