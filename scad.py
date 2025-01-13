@@ -113,7 +113,7 @@ def make_scad(**kwargs):
             sizes.append([6, 6])
 
         if not fast:
-            thicknesses = [6,12,18,21,24,30,36,42,60]
+            thicknesses = [6,12,15,18,21,24,30,36,42,60]
         else:
             thicknesses = [18]
 
