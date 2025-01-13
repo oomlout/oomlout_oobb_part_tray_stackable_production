@@ -1,3 +1,7 @@
+classification: project
+color: oomlout_oobb_part_tray_stackable_production
+description_extra: ''
+description_main: oobb_part_oomlout_oobb_part_tray_stackable_production_base_3_width_3_height_3_mm_depth
 full_rotations:
 - 0
 - 0
@@ -6,24 +10,34 @@ full_shift:
 - 0
 - 0
 - 0
-id: oobb_part_oomlout_oobb_part_tray_stackable_production_base_3_width_3_height_3_mm_depth
+id: project_oomlout_oobb_part_tray_stackable_production_base_oomlout_oobb_part_tray_stackable_production_oobb_part_oomlout_oobb_part_tray_stackable_production_base_3_width_3_height_3_mm_depth
+id_oobb: oobb_part_oomlout_oobb_part_tray_stackable_production_base_3_width_3_height_3_mm_depth
 kwargs:
+  classification: project
+  color: oomlout_oobb_part_tray_stackable_production
+  description_extra: ''
+  description_main: oobb_part_oomlout_oobb_part_tray_stackable_production_base_3_width_3_height_3_mm_depth
   filter: ''
   height: 3
+  manufacturer: ''
   modes:
   - 3dpr
   navigation: false
   overwrite: true
+  part_number: ''
   thickness: 3
   type: oomlout_oobb_part_tray_stackable_production_base
   width: 3
+manufacturer: ''
 name: base
+part_number: ''
 project_name: C:\gh\oomlout_oobb_part_tray_stackable_production
 thing:
   classification: oobb
   color: ''
   components:
-  - - depth: 3
+  - - color: oomlout_oobb_part_tray_stackable_production
+      depth: 3
       height: 3
       pos:
       - 0
@@ -1381,13 +1395,19 @@ thing:
         shape: cylinder
         type: negative
   components_objects:
-  - depth: 3
+  - classification: project
+    color: oomlout_oobb_part_tray_stackable_production
+    depth: 3
+    description_extra: ''
+    description_main: ''
     filter: ''
     height: 3
+    manufacturer: ''
     modes:
     - 3dpr
     navigation: false
     overwrite: true
+    part_number: ''
     pos:
     - 0
     - 0
@@ -1398,14 +1418,20 @@ thing:
     type: positive
     width: 3
   - both_holes: true
+    classification: project
+    color: oomlout_oobb_part_tray_stackable_production
     depth: 3
+    description_extra: ''
+    description_main: ''
     filter: ''
     height: 3
     holes: perimeter
+    manufacturer: ''
     modes:
     - 3dpr
     navigation: false
     overwrite: true
+    part_number: ''
     pos:
     - 0
     - 0
@@ -1416,8 +1442,8 @@ thing:
     type: p
     width: 3
   components_string:
-  - oobb_plate_shape_positive_type_3_depth_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_3_width_3_height_3_thickness
-  - oobb_holes_shape_p_type_3_depth_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_3_width_3_height_3_thickness_true_both_holes_perimeter_holes
+  - oobb_plate_shape_positive_type_3_depth_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_3_width_3_height_3_thickness_project_classification_oomlout_oobb_part_tray_stackable_production_color
+  - oobb_holes_shape_p_type_3_depth_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_3_width_3_height_3_thickness_project_classification_oomlout_oobb_part_tray_stackable_production_color_true_both_holes_perimeter_holes
   description: oomlout oobb part tray stackable production base 3x3x3
   description_extra: ''
   description_main: 3_width_3_height_3_mm_depth
@@ -1439,3 +1465,4 @@ thing:
   type: part
   width: 3
   width_mm: 44
+type: oomlout_oobb_part_tray_stackable_production_base

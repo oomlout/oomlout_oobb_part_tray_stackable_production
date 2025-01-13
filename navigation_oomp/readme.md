@@ -1,0 +1,6 @@
+* [hardware](hardware)
+  * [screw_countersunk](hardware/screw_countersunk)
+    * [m3](hardware/screw_countersunk/m3)
+      * [black](hardware/screw_countersunk/m3/black)
+        * [6_mm_length](hardware/screw_countersunk/m3/black/6_mm_length)
+          * [hex_head](hardware/screw_countersunk/m3/black/6_mm_length/hex_head)

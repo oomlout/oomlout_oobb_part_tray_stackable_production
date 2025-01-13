@@ -3,18 +3,36 @@ $fn = 50;
 
 difference() {
 	union() {
-		hull() {
-			translate(v = [-17.0000000000, 17.0000000000, 0]) {
-				cylinder(h = 3, r = 5);
-			}
-			translate(v = [17.0000000000, 17.0000000000, 0]) {
-				cylinder(h = 3, r = 5);
-			}
-			translate(v = [-17.0000000000, -17.0000000000, 0]) {
-				cylinder(h = 3, r = 5);
-			}
-			translate(v = [17.0000000000, -17.0000000000, 0]) {
-				cylinder(h = 3, r = 5);
+		color(alpha = 1.0000000000, c = "oomlout_oobb_part_tray_stackable_production") {
+			hull() {
+				color(alpha = 1.0000000000, c = "oomlout_oobb_part_tray_stackable_production") {
+					translate(v = [-17.0000000000, 17.0000000000, 0]) {
+						color(alpha = 1.0000000000, c = "oomlout_oobb_part_tray_stackable_production") {
+							cylinder(h = 3, r = 5);
+						}
+					}
+				}
+				color(alpha = 1.0000000000, c = "oomlout_oobb_part_tray_stackable_production") {
+					translate(v = [17.0000000000, 17.0000000000, 0]) {
+						color(alpha = 1.0000000000, c = "oomlout_oobb_part_tray_stackable_production") {
+							cylinder(h = 3, r = 5);
+						}
+					}
+				}
+				color(alpha = 1.0000000000, c = "oomlout_oobb_part_tray_stackable_production") {
+					translate(v = [-17.0000000000, -17.0000000000, 0]) {
+						color(alpha = 1.0000000000, c = "oomlout_oobb_part_tray_stackable_production") {
+							cylinder(h = 3, r = 5);
+						}
+					}
+				}
+				color(alpha = 1.0000000000, c = "oomlout_oobb_part_tray_stackable_production") {
+					translate(v = [17.0000000000, -17.0000000000, 0]) {
+						color(alpha = 1.0000000000, c = "oomlout_oobb_part_tray_stackable_production") {
+							cylinder(h = 3, r = 5);
+						}
+					}
+				}
 			}
 		}
 	}
