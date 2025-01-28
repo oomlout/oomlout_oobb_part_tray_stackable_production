@@ -27,7 +27,7 @@ kwargs:
   oomp_part_number: ''
   oomp_size: tray_stackable
   oomp_type: part
-  overwrite: false
+  overwrite: true
   thickness: 15
   type: oomlout_oobb_part_tray_stackable_production_tray_stackable
   width: 4
