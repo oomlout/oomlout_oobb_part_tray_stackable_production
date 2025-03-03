@@ -20,8 +20,8 @@ def make_scad(**kwargs):
         typ = "fast"
         #typ = "manual"
 
-    oomp_mode = "project"
-    #oomp_mode = "oobb"
+    #oomp_mode = "project"
+    oomp_mode = "oobb"
 
     if typ == "all":
         filter = ""; save_type = "all"; navigation = True; overwrite = True; modes = ["3dpr"]; oomp_run = True
@@ -99,7 +99,7 @@ def make_scad(**kwargs):
         elif oomp_mode == "oobb":
             kwargs["oomp_classification"] = "oobb"
             kwargs["oomp_type"] = "part"
-            kwargs["oomp_size"] = ""
+            kwargs["oomp_size"] = "tray_stackable"
             kwargs["oomp_color"] = ""
             kwargs["oomp_description_main"] = ""
             kwargs["oomp_description_extra"] = ""
@@ -112,18 +112,40 @@ def make_scad(**kwargs):
         part_default["full_shift"] = [0, 0, 0]
         part_default["full_rotations"] = [0, 0, 0]
         
-        part = copy.deepcopy(part_default)
-        p3 = copy.deepcopy(kwargs)
-        p3["width"] = 3
-        p3["height"] = 3
-        #p3["thickness"] = 6
-        #p3["extra"] = ""
-        part["kwargs"] = p3
-        nam = "base"
-        part["name"] = nam
-        if oomp_mode == "oobb":
-            p3["oomp_size"] = nam
-        #parts.append(part)
+
+        widths = [2,4,6,8,10]
+        heights = [2,4,6,8,10]
+        thicknesses = [9,12,15,18,21,24,27,30,45,60,90]
+        extras = ["", "bottom"]
+
+        sizes = []
+        for width in widths:
+            for height in heights:
+                    size = [width, height]
+                    size_other_way = [height, width]
+                    if size in sizes or size_other_way in sizes:
+                        pass
+                    else:
+                        sizes.append(size)
+
+        for size in sizes:
+            for thickness in thicknesses:
+                for extra in extras:
+                    wid = size[0]
+                    hei = size[1]
+                    part = copy.deepcopy(part_default)
+                    p3 = copy.deepcopy(kwargs)
+                    p3["width"] = wid
+                    p3["height"] = hei
+                    p3["thickness"] = thickness
+                    if extra != "":
+                        p3["extra"] = extra
+                    part["kwargs"] = p3
+                    nam = "tray_stackable"
+                    part["name"] = nam
+                    if oomp_mode == "oobb":
+                        p3["oomp_size"] = nam
+                    parts.append(part)
 
 
     kwargs["parts"] = parts
@@ -201,7 +223,136 @@ def get_base(thing, **kwargs):
         p3["pos"] = pos1
         #p3["m"] = "#"
         oobb_base.append_full(thing,**p3)
+
+def get_tray_stackable(thing, **kwargs):
+
+    prepare_print = kwargs.get("prepare_print", False)
+    width = kwargs.get("width", 1)
+    height = kwargs.get("height", 1)
+    depth = kwargs.get("thickness", 3)                    
+    rot = kwargs.get("rot", [0, 0, 0])
+    pos = kwargs.get("pos", [0, 0, 0])
+    extra = kwargs.get("extra", "")
     
+    
+    thickness_layer = 0.6
+    thickness_layer_bottom = 0.4
+    thickness_layer_top = 0.9
+    
+    thickness_bottom = thickness_layer_bottom * 3
+    thickness_full_top_piece = depth
+    thickness_wall = 1.2
+    
+    clearance_inset_stacking = 0.2#0#0.25#0#0.5
+
+    width_mm = width * 15
+    height_mm = height * 15
+    depth_mm = depth
+    
+    radius_1 = 5
+    radius_2 = radius_1 - thickness_wall
+    radius_3 = radius_2 - clearance_inset_stacking
+    radius_4 = radius_3 - thickness_wall
+    radius_5 = radius_4 - thickness_wall
+
+    wid_top = 0
+    hei_top = 0
+    wid_bot  =0
+    hei_bot = 0
+
+    #base tray
+    if True:
+    #if False:
+        #main plate
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "p"
+        p3["shape"] = f"rounded_rectangle"    
+        wid = width_mm
+        hei = height_mm
+        dep = thickness_full_top_piece #depth_mm - thickness_stack_interface
+        wid_top = wid
+        hei_top = hei
+        size = [wid, hei, dep]
+        p3["size"] = size     
+        p3["radius"] = radius_1
+        #p3["holes"] = True         uncomment to include default holes
+        #p3["m"] = "#"
+        pos1 = copy.deepcopy(pos)         
+        pos1[2] += 0
+        p3["pos"] = pos1
+        oobb_base.append_full(thing,**p3)
+        
+        #main_cutout        
+        p5 = copy.deepcopy(p3)
+        p5["type"] = "n"
+        p5["size"][0] = width_mm - thickness_wall * 2
+        p5["size"][1] = height_mm - thickness_wall * 2
+        p5["size"][2] = thickness_full_top_piece - thickness_bottom
+        p5["radius"] = radius_2
+        #p5["m"] = "#"
+        p5["pos"][2] = thickness_bottom
+        oobb_base.append_full(thing,**p5)
+
+
+        #add screw holes
+        if True:
+            p3 = copy.deepcopy(kwargs)
+            p3["type"] = "n"
+            p3["shape"] = f"oobb_hole"
+            p3["radius_name"] = "m3"
+            p3["depth"] = thickness_bottom
+            p3["m"] = "#"
+            pos1 = copy.deepcopy(pos)         
+            p3["pos"] = pos1
+            
+
+            wid_times = width / 2
+            hei_times = height / 2
+            start_x = -width_mm/2 + 15
+            start_y = -height_mm/2 + 15
+            poss = []
+            for xx in range(int(wid_times)):
+                for yy in range(int(hei_times)):            
+                    pos1 = copy.deepcopy(pos)         
+                    pos1[0] += start_x + xx*30
+                    pos1[1] += start_y + yy*30
+                    poss.append(pos1)
+            p3["pos"] = poss
+            oobb_base.append_full(thing,**p3)
+
+   
+   #handle extras
+    if extra == "bottom":
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_slice"
+        pos1 = copy.deepcopy(pos)
+        pos1[2] = thickness_bottom 
+        p3["pos"] = pos1
+        #p3["m"] = "#"
+        p3["zz"] = "bottom"
+        oobb_base.append_full(thing,**p3)
+    elif extra == "top":
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_slice"
+        pos1 = copy.deepcopy(pos)
+        pos1[2] = thickness_bottom
+        p3["pos"] = pos1
+        #p3["m"] = "#"
+        p3["zz"] = "top"
+        oobb_base.append_full(thing,**p3)
+
 if __name__ == '__main__':
     kwargs = {}
     main(**kwargs)
+
+    prepare_print = kwargs.get("prepare_print", False)
+    width = kwargs.get("width", 1)
+    height = kwargs.get("height", 1)
+    depth = kwargs.get("thickness", 3)                    
+    rot = kwargs.get("rot", [0, 0, 0])
+    pos = kwargs.get("pos", [0, 0, 0])
+    extra = kwargs.get("extra", "")
+    
+    
