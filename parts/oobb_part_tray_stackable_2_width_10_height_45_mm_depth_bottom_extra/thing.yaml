@@ -18,7 +18,7 @@ kwargs:
   height: 10
   modes:
   - 3dpr
-  navigation: false
+  navigation: true
   oomp_classification: oobb
   oomp_color: ''
   oomp_description_extra: bottom_extra
@@ -26,11 +26,12 @@ kwargs:
   oomp_manufacturer: ''
   oomp_mode: oobb
   oomp_part_number: ''
-  oomp_run: false
+  oomp_run: true
   oomp_size: tray_stackable
   oomp_type: part
   overwrite: true
   thickness: 45
+  typ: all
   type: oomlout_oobb_part_tray_stackable_product_tray_stackable
   width: 2
 manufacturer: ''
@@ -295,7 +296,7 @@ thing:
     height: 10
     modes:
     - 3dpr
-    navigation: false
+    navigation: true
     oomp_classification: oobb
     oomp_color: ''
     oomp_description_extra: ''
@@ -303,7 +304,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: oobb
     oomp_part_number: ''
-    oomp_run: false
+    oomp_run: true
     oomp_size: tray_stackable
     oomp_type: part
     overwrite: true
@@ -312,13 +313,14 @@ thing:
     - 0
     - 0
     radius: 5
-    save_type: none
+    save_type: all
     shape: rounded_rectangle
     size:
     - 30
     - 150
     - 45
     thickness: 45
+    typ: all
     type: p
     width: 2
   - extra: bottom
@@ -326,7 +328,7 @@ thing:
     height: 10
     modes:
     - 3dpr
-    navigation: false
+    navigation: true
     oomp_classification: oobb
     oomp_color: ''
     oomp_description_extra: ''
@@ -334,7 +336,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: oobb
     oomp_part_number: ''
-    oomp_run: false
+    oomp_run: true
     oomp_size: tray_stackable
     oomp_type: part
     overwrite: true
@@ -343,13 +345,14 @@ thing:
     - 0
     - 1.2000000000000002
     radius: 3.8
-    save_type: none
+    save_type: all
     shape: rounded_rectangle
     size:
     - 27.6
     - 147.6
     - 43.8
     thickness: 45
+    typ: all
     type: n
     width: 2
   - depth: 1.2000000000000002
@@ -359,7 +362,7 @@ thing:
     m: '#'
     modes:
     - 3dpr
-    navigation: false
+    navigation: true
     oomp_classification: oobb
     oomp_color: ''
     oomp_description_extra: ''
@@ -367,7 +370,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: oobb
     oomp_part_number: ''
-    oomp_run: false
+    oomp_run: true
     oomp_size: tray_stackable
     oomp_type: part
     overwrite: true
@@ -376,9 +379,10 @@ thing:
     - -60.0
     - 0
     radius_name: m3
-    save_type: none
+    save_type: all
     shape: oobb_hole
     thickness: 45
+    typ: all
     type: n
     width: 2
   - depth: 1.2000000000000002
@@ -388,7 +392,7 @@ thing:
     m: '#'
     modes:
     - 3dpr
-    navigation: false
+    navigation: true
     oomp_classification: oobb
     oomp_color: ''
     oomp_description_extra: ''
@@ -396,7 +400,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: oobb
     oomp_part_number: ''
-    oomp_run: false
+    oomp_run: true
     oomp_size: tray_stackable
     oomp_type: part
     overwrite: true
@@ -405,9 +409,10 @@ thing:
     - -30.0
     - 0
     radius_name: m3
-    save_type: none
+    save_type: all
     shape: oobb_hole
     thickness: 45
+    typ: all
     type: n
     width: 2
   - depth: 1.2000000000000002
@@ -417,7 +422,7 @@ thing:
     m: '#'
     modes:
     - 3dpr
-    navigation: false
+    navigation: true
     oomp_classification: oobb
     oomp_color: ''
     oomp_description_extra: ''
@@ -425,7 +430,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: oobb
     oomp_part_number: ''
-    oomp_run: false
+    oomp_run: true
     oomp_size: tray_stackable
     oomp_type: part
     overwrite: true
@@ -434,9 +439,10 @@ thing:
     - 0.0
     - 0
     radius_name: m3
-    save_type: none
+    save_type: all
     shape: oobb_hole
     thickness: 45
+    typ: all
     type: n
     width: 2
   - depth: 1.2000000000000002
@@ -446,7 +452,7 @@ thing:
     m: '#'
     modes:
     - 3dpr
-    navigation: false
+    navigation: true
     oomp_classification: oobb
     oomp_color: ''
     oomp_description_extra: ''
@@ -454,7 +460,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: oobb
     oomp_part_number: ''
-    oomp_run: false
+    oomp_run: true
     oomp_size: tray_stackable
     oomp_type: part
     overwrite: true
@@ -463,9 +469,10 @@ thing:
     - 30.0
     - 0
     radius_name: m3
-    save_type: none
+    save_type: all
     shape: oobb_hole
     thickness: 45
+    typ: all
     type: n
     width: 2
   - depth: 1.2000000000000002
@@ -475,7 +482,7 @@ thing:
     m: '#'
     modes:
     - 3dpr
-    navigation: false
+    navigation: true
     oomp_classification: oobb
     oomp_color: ''
     oomp_description_extra: ''
@@ -483,7 +490,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: oobb
     oomp_part_number: ''
-    oomp_run: false
+    oomp_run: true
     oomp_size: tray_stackable
     oomp_type: part
     overwrite: true
@@ -492,9 +499,10 @@ thing:
     - 60.0
     - 0
     radius_name: m3
-    save_type: none
+    save_type: all
     shape: oobb_hole
     thickness: 45
+    typ: all
     type: n
     width: 2
   - extra: bottom
@@ -502,7 +510,7 @@ thing:
     height: 10
     modes:
     - 3dpr
-    navigation: false
+    navigation: true
     oomp_classification: oobb
     oomp_color: ''
     oomp_description_extra: ''
@@ -510,7 +518,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: oobb
     oomp_part_number: ''
-    oomp_run: false
+    oomp_run: true
     oomp_size: tray_stackable
     oomp_type: part
     overwrite: true
@@ -518,21 +526,22 @@ thing:
     - 0
     - 0
     - 1.2000000000000002
-    save_type: none
+    save_type: all
     shape: oobb_slice
     thickness: 45
+    typ: all
     type: n
     width: 2
     zz: bottom
   components_string:
-  - rounded_rectangle_shape_p_type_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_false_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra_30_150_45_size_5_radius
-  - rounded_rectangle_shape_n_type_0_0_1.2000000000000002_pos_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_false_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra_27.6_147.6_43.8_size_3.8_radius
-  - oobb_hole_shape_n_type_m3_radius_name_1.2000000000000002_depth_0.0_-60.0_0_pos_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_false_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra
-  - oobb_hole_shape_n_type_m3_radius_name_1.2000000000000002_depth_0.0_-30.0_0_pos_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_false_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra
-  - oobb_hole_shape_n_type_m3_radius_name_1.2000000000000002_depth_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_false_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra
-  - oobb_hole_shape_n_type_m3_radius_name_1.2000000000000002_depth_0.0_30.0_0_pos_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_false_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra
-  - oobb_hole_shape_n_type_m3_radius_name_1.2000000000000002_depth_0.0_60.0_0_pos_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_false_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra
-  - oobb_slice_shape_n_type_0_0_1.2000000000000002_pos_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_false_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra_bottom_zz
+  - rounded_rectangle_shape_p_type_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_true_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra_30_150_45_size_5_radius
+  - rounded_rectangle_shape_n_type_0_0_1.2000000000000002_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_true_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra_27.6_147.6_43.8_size_3.8_radius
+  - oobb_hole_shape_n_type_m3_radius_name_1.2000000000000002_depth_0.0_-60.0_0_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_true_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra
+  - oobb_hole_shape_n_type_m3_radius_name_1.2000000000000002_depth_0.0_-30.0_0_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_true_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra
+  - oobb_hole_shape_n_type_m3_radius_name_1.2000000000000002_depth_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_true_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra
+  - oobb_hole_shape_n_type_m3_radius_name_1.2000000000000002_depth_0.0_30.0_0_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_true_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra
+  - oobb_hole_shape_n_type_m3_radius_name_1.2000000000000002_depth_0.0_60.0_0_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_true_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra
+  - oobb_slice_shape_n_type_0_0_1.2000000000000002_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_oobb_oomp_mode_true_oomp_run_2_width_10_height_45_thickness_oobb_oomp_classification_part_oomp_type_tray_stackable_oomp_size_bottom_extra_bottom_zz
   description: oomlout oobb part tray stackable product tray stackable 2x10x45
   description_extra: bottom_extra
   description_main: 2_width_10_height_45_mm_depth
