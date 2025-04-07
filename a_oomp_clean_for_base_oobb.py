@@ -47,6 +47,11 @@ def main(**kwargs):
     folders_to_delete.append('oolc_production')
     folders_to_delete.append('source_files')
     folders_to_delete.append('three_d_printing')
+    folders_to_delete.append('temporary')
+    folders_to_delete.append('scad_output')
+    folders_to_delete.append('navigation_oobb')
+    folders_to_delete.append('navigation_oomp')
+    folders_to_delete.append('parts')
 
 
     #remove all files then remove directory recursively use a system call

@@ -27,6 +27,9 @@ def make_scad(**kwargs):
         filter = ""; save_type = "all"; navigation = True; overwrite = False; modes = ["3dpr"]; oomp_run = True
         #filter = ""; save_type = "all"; navigation = True; overwrite = True; modes = ["3dpr", "laser", "true"]
     elif typ == "fast":
+        #navigation true
+        #filter = ""; save_type = "none"; navigation = True; overwrite = True; modes = ["3dpr"]; oomp_run = False
+        #default
         filter = ""; save_type = "none"; navigation = False; overwrite = True; modes = ["3dpr"]; oomp_run = False
     elif typ == "manual":
     #filter
@@ -116,7 +119,9 @@ def make_scad(**kwargs):
         widths = [2,4,6,8,10]
         heights = [2,4,6,8,10]
         thicknesses = [9,12,15,18,21,24,27,30,45,60,90]
-        extras = ["", "bottom"]
+        #test
+        #thicknesses = [18]
+        extras = [""]
 
         sizes = []
         for width in widths:
@@ -130,22 +135,41 @@ def make_scad(**kwargs):
 
         for size in sizes:
             for thickness in thicknesses:
-                for extra in extras:
-                    wid = size[0]
-                    hei = size[1]
-                    part = copy.deepcopy(part_default)
-                    p3 = copy.deepcopy(kwargs)
-                    p3["width"] = wid
-                    p3["height"] = hei
-                    p3["thickness"] = thickness
-                    if extra != "":
-                        p3["extra"] = extra
-                    part["kwargs"] = p3
-                    nam = "tray_stackable"
-                    part["name"] = nam
-                    if oomp_mode == "oobb":
-                        p3["oomp_size"] = nam
-                    parts.append(part)
+                extra = ""
+                wid = size[0]
+                hei = size[1]
+                part = copy.deepcopy(part_default)
+                p3 = copy.deepcopy(kwargs)
+                p3["width"] = wid
+                p3["height"] = hei
+                p3["thickness"] = thickness
+                if extra != "":
+                    p3["extra"] = extra
+                part["kwargs"] = p3
+                nam = "tray_stackable"
+                part["name"] = nam
+                if oomp_mode == "oobb":
+                    p3["oomp_size"] = nam
+                parts.append(part)
+
+        for size in sizes:
+            thickness = 99
+            extra = "bottom"
+            wid = size[0]
+            hei = size[1]
+            part = copy.deepcopy(part_default)
+            p3 = copy.deepcopy(kwargs)
+            p3["width"] = wid
+            p3["height"] = hei
+            p3["thickness"] = thickness
+            if extra != "":
+                p3["extra"] = extra
+            part["kwargs"] = p3
+            nam = "tray_stackable"
+            part["name"] = nam
+            if oomp_mode == "oobb":
+                p3["oomp_size"] = nam
+            parts.append(part)
 
 
     kwargs["parts"] = parts
@@ -154,9 +178,9 @@ def make_scad(**kwargs):
 
     #generate navigation
     if navigation:
-        sort = []
-        #sort.append("extra")
+        sort = []        
         sort.append("name")
+        sort.append("extra")
         sort.append("width")
         sort.append("height")
         sort.append("thickness")

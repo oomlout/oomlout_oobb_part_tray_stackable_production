@@ -47,26 +47,26 @@ thing:
       - 0
       - 0
       - 0
-      radius: 5
+      r: 5
       shape: rounded_rectangle
       size:
       - 30
       - 60
       - 90
-      type: p
+      type: positive
       width: 2
   - - height: 4
       pos:
       - 0
       - 0
       - 1.2000000000000002
-      radius: 3.8
+      r: 3.8
       shape: rounded_rectangle
       size:
       - 27.6
       - 57.6
       - 88.8
-      type: n
+      type: negative
       width: 2
   - - depth: 1.2000000000000002
       h: 1.2000000000000002
@@ -79,7 +79,7 @@ thing:
       - 0
       r: 1.5
       shape: cylinder
-      type: n
+      type: negative
       width: 2
     - depth: 1.2000000000000002
       h: 1.2000000000000002
@@ -89,7 +89,7 @@ thing:
       pos: *id001
       r: 1.8
       shape: cylinder
-      type: n
+      type: negative
       width: 2
     - depth: 1.2000000000000002
       h: 1.2000000000000002
@@ -99,7 +99,7 @@ thing:
       pos: *id001
       r: 1.5
       shape: cylinder
-      type: n
+      type: negative
       width: 2
   - - depth: 1.2000000000000002
       h: 1.2000000000000002
@@ -112,7 +112,7 @@ thing:
       - 0
       r: 1.5
       shape: cylinder
-      type: n
+      type: negative
       width: 2
     - depth: 1.2000000000000002
       h: 1.2000000000000002
@@ -122,7 +122,7 @@ thing:
       pos: *id002
       r: 1.8
       shape: cylinder
-      type: n
+      type: negative
       width: 2
     - depth: 1.2000000000000002
       h: 1.2000000000000002
@@ -132,7 +132,7 @@ thing:
       pos: *id002
       r: 1.5
       shape: cylinder
-      type: n
+      type: negative
       width: 2
   components_objects:
   - filter: ''
